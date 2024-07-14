@@ -1,0 +1,15 @@
+{
+  "name": "yelpcamp-server",
+  "version": "1.0.0",
+  "description": "backend for yelpcamp-campground.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anant Pandey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.5.1"
+  }
+}
