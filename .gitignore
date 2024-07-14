@@ -6,3 +6,5 @@ Frontend/yelpcamp-campground/vite.config.js
 Frontend/yelpcamp-campground/package-lock.json
 Frontend/yelpcamp-campground/public/vite.svg
 Frontend/yelpcamp-campground/.eslintrc.cjs
+/Backend/Models
+/Backend/Seeds
