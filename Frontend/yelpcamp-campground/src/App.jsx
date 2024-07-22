@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from './Components/Navbar';
+import { Outlet } from 'react-router-dom';
 
 function App() {
-  const [message, setMessage] = useState('');
 
-  useEffect(() => {
-    fetch('/api')
-      .then(response => response.json())
-      .then(data => setMessage(data.message));
-  }, []);
-
-  return <div>{message}</div>;
+  return( 
+    <>
+      <Navbar/>
+      <Outlet/>
+    </>
+  )
 }
 
 export default App;
