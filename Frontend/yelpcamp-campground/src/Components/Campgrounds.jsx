@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios';
 import { NavLink } from 'react-router-dom';
-import { useLoaderData } from 'react-router-dom';
-import { Outlet } from 'react-router-dom';
+import { useContext } from 'react';
+import { counterContext } from '../Context/Context';
 const Campgrounds = () => {
-    const campResponse = useLoaderData();
-    
+    const campResponse = useContext(counterContext)
     return (
         <div>
             <h1>All Campgrounds</h1>
             <ul>
             {
-                campResponse.data.map((e)=>{
-                    return <li key={e['_id']}><NavLink to={'show'}>{e['location']}</NavLink></li>
+                campResponse.campData.map((e)=>{
+                    return <li key={e['_id']}><NavLink to={`showCamp/:${e['_id']}`}>{e['location']}</NavLink></li>
                 })
             }
             </ul>
@@ -21,12 +19,3 @@ const Campgrounds = () => {
 }
 
 export default Campgrounds
-
-export const dataFetch = async ()=>{
-    const response = await axios.get('/campground', {
-        headers: {
-          'Accept': 'application/json',
-        },
-      })
-      return response;
-}

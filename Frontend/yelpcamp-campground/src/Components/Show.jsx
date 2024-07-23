@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { createContext } from 'react'
+import { useParams } from 'react-router-dom'
+import { useContext } from 'react';
+import { counterContext } from '../Context/Context';
 
 const Show = () => {
-    console.log('show')
+  let { campId } = useParams();
+  const campDetail = useContext(counterContext)
+  console.log(campDetail.campData)
+  let selectedCamp = campDetail.campData.find(data => data._id === campId.slice(1,campId.length))
   return (
-    <div>Show</div>
+    <>
+      <h1>ID: {selectedCamp._id}</h1>
+      <h2>Location: {selectedCamp.location}</h2>
+      <h2>Title: {selectedCamp.title}</h2>
+
+    </>
   )
 }
 
