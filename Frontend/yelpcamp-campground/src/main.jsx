@@ -7,11 +7,13 @@ import App  from './App.jsx'
 import './index.css'
 import Show from './Components/Show.jsx';
 import { counterContext } from './Context/Context.js';
+import NewCampground from './Components/NewCampground.jsx';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
       <Route path='home' element={<Home/>}/>
+      <Route path='newcampground' element={<NewCampground/>}/>
       <Route path='campgroundlist'>
         <Route index element={<Campgrounds/>}/>
         <Route path='showCamp/:campId' element={<Show/>}/>

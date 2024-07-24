@@ -6,7 +6,6 @@ import { counterContext } from '../Context/Context';
 const Show = () => {
   let { campId } = useParams();
   const campDetail = useContext(counterContext)
-  console.log(campDetail.campData)
   let selectedCamp = campDetail.campData.find(data => data._id === campId.slice(1,campId.length))
   return (
     <>
