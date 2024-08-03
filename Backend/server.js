@@ -17,6 +17,12 @@ app.get('/campground', async (req, res) => {
   }
 });
 
+app.post('/campground',async (req, res) => {
+
+  console.log(req.body)
+
+})
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
