@@ -1,7 +1,8 @@
 import React, { createContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { NavLink, Outlet, useParams } from 'react-router-dom'
 import { useContext } from 'react';
 import { counterContext } from '../Context/Context';
+import EditCampground from './EditCampground';
 
 const Show = () => {
   let { campId } = useParams();
@@ -12,7 +13,9 @@ const Show = () => {
       <h1>ID: {selectedCamp._id}</h1>
       <h2>Location: {selectedCamp.location}</h2>
       <h2>Title: {selectedCamp.title}</h2>
-
+      <NavLink to={`editCampground/${campId}`}>Edit Campground</NavLink> &nbsp;&nbsp;&nbsp;&nbsp;
+      <NavLink to={`deleteCampground/${campId}`}>Delete Campground</NavLink>
+      <Outlet/>
     </>
   )
 }

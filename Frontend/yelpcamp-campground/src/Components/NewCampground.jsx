@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import { useContext } from 'react'
-import { counterContext } from '../Context/Context'
 import axios from 'axios'
 
 const NewCampground = () => {
     const [newCamp, setNewCamp] = useState({location:'',title:''})
-    const campDetail = useContext(counterContext)
     const handleChange = (evt)=>{
         setNewCamp((prev)=>{
             let changedProperty = evt.target.name
@@ -21,18 +18,18 @@ const NewCampground = () => {
             url: '/campground',
             data:newCamp
           }).then(function (response) {
-            console.log(response.config.data)
+            //pass
           });
-        console.log('form submitted')
     }
   return (
     <>
+    <h1> New Campground </h1>
     <br/>
     <label htmlFor='location'>Location:</label>
     <input onChange={handleChange} type='text' name='location' id='location' value={newCamp.location}/><br/><br/>
     <label htmlFor='title'>Title:</label>
     <input onChange={handleChange} type='text' name='title' id='title' value={newCamp.title}/><br/><br/>
-    <button onClick={handleSubmit}>Submit</button>
+    <button onClick={handleSubmit}>Add Campground</button>
     </>
   )
 }
