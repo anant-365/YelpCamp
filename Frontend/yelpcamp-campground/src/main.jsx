@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Campgrounds from './Components/Campgrounds';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
-import Home from './Components/Home';
+import Contact from './Components/Contact.jsx';
 import App  from './App.jsx'
 import './index.css'
 import Show from './Components/Show.jsx';
@@ -15,7 +15,7 @@ import DeleteCampground from './Components/DeleteCampground.jsx';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App/>}>
-      <Route path='home' element={<Home/>}/>
+      <Route path='contact' element={<Contact/>}/>
       <Route path='newcampground' element={<NewCampground/>}/>
         <Route path='campgroundlist' >
         <Route index element={<Campgrounds />} />
