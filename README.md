@@ -5,7 +5,7 @@
 ## Overview
 YelpCamp is a web application that allows users to view, create, and review campgrounds. This project leverages modern web technologies to provide a seamless and dynamic user experience.
 
-## Project Screenshots
+## Project Screenshot
 ![Screenshot 1](https://github.com/anant-365/YelpCamp/blob/main/Screenshot%202024-08-17%20170722.png)
 
 ## Demo Video
