@@ -9,7 +9,7 @@ YelpCamp is a web application that allows users to view, create, and review camp
 ![Screenshot 1](https://github.com/anant-365/YelpCamp/blob/main/Screenshot%202024-08-17%20170722.png)
 
 ## Demo Video
-Watch the demo video-
+ Click below image to watch the demo video-
 
 -----
 
