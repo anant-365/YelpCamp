@@ -15,7 +15,7 @@ YelpCamp is a web application that allows users to view, create, and review camp
 
 [![Demovideo](https://img.youtube.com/vi/QPfEKW7j3SY/0.jpg)](https://www.youtube.com/watch?v=QPfEKW7j3SY)
 
-## System Architecture
+## Project Architecture
 ![Flow Chart](https://github.com/anant-365/YelpCamp/blob/main/Yelp%20Camp%20System%20Architecture%20Development%20Flowchart.png)
 
 ## Client-Side (Frontend)
