@@ -13,7 +13,7 @@ Watch the demo video-
 
 -----
 
-<iframe width="932" height="524" src="https://www.youtube.com/embed/QPfEKW7j3SY?list=PLjZRxu3fAQVqf17YZdDNMMGqZvrFzbMmi" title="YelpCamp - MERN" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Demovideo](https://img.youtube.com/vi/QPfEKW7j3SY/0.jpg)](https://www.youtube.com/watch?v=QPfEKW7j3SY)
 
 ## System Architecture
 ![Flow Chart](https://github.com/anant-365/YelpCamp/blob/main/Yelp%20Camp%20System%20Architecture%20Development%20Flowchart.png)
