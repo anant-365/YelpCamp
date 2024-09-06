@@ -37,7 +37,7 @@ Watch the demo video
 - **Hosting**: Planning to host on cloud services like AWS or Vercel.
 
 ## Source Code
-Check out the source code on GitHub.
+Check out the source code on GitHub- [anant-365](https://github.com/anant-365/YelpCamp/).
 
 Stay tuned for more updates as I continue to build and enhance YelpCamp! 🚀
 
