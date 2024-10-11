@@ -49,4 +49,8 @@ Click below image to watch the demo video:
 ## Source Code
 Check out the source code on GitHub - [anant-365](https://github.com/anant-365/YelpCamp/).
 
+<<<<<<< HEAD
 Stay tuned for more updates as I continue to build and enhance YelpCamp! 🚀
+=======
+Stay tuned for more updates as I continue to build and enhance YelpCamp! 🚀
+>>>>>>> bfd847f8d039b2523fbca50f8c919c588af7e5be
