@@ -1,14 +1,18 @@
 import React, { useContext } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useOutlet, useParams } from 'react-router-dom';
 import { counterContext } from '../Context/Context';
 
 const Show = () => {
-  let { campId } = useParams();
+  const outlet = useOutlet(); 
+  let { campId } = useParams()
   const campDetail = useContext(counterContext);
   let selectedCamp = campDetail.campData.find(data => data._id === campId.slice(1, campId.length));
 
-  return (
-    <div className="bg-gray-800 text-white p-4 sm:p-6 md:p-8 md:flex-row lg:p-10 lg:flex-row min-h-screen flex flex-col justify-center items-center">
+  return (<>
+  {outlet ? (
+        <Outlet /> // Render the child route's content
+      ) : (
+        <div className="bg-gray-800 text-white p-4 sm:p-6 md:p-8 md:flex-row lg:p-10 lg:flex-row min-h-screen flex flex-col justify-center items-center">
       <div className="w-full max-w-4xl bg-gray-700 p-6 rounded-lg shadow-lg flex flex-col md:flex-row">
         <img src={selectedCamp.image} alt="Campground" className="w-full md:w-1/2 h-auto mb-4 md:mb-0 md:mr-6 rounded" />
         <div className="flex flex-col justify-between">
@@ -35,8 +39,9 @@ const Show = () => {
           </div>
         </div>
       </div>
-      <Outlet />
-    </div>
+    </div> // Fallback if no child route matches
+      )}
+    </>
   );
 };
 

@@ -8,10 +8,11 @@ const DeleteCampground = () => {
     const handleSubmit = () => {
         axios({
             method: 'delete',
-            url: `/campground/${campId.slice(1, campId.length)}`,
+            url: `${import.meta.env.VITE_BACKEND_SERVER}/campground/${campId.slice(1, campId.length)}`,
         }).then(function (response) {
             console.log(response.data);
         });
+        alert('Campground Deleted')
     };
 
     return (

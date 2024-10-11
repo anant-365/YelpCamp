@@ -21,11 +21,12 @@ const EditCampground = () => {
     const handleSubmit = () => {
         axios({
             method: 'put',
-            url: '/campground',
+            url: `${import.meta.env.VITE_BACKEND_SERVER}/campground`,
             data: editCamp
         }).then(function (response) {
             //pass
         });
+        alert('Campground Edited')
     };
 
     return (

@@ -1,10 +1,13 @@
-
+# Backend
 /Backend/node_modules
-Backend/package-lock.json
-Frontend/yelpcamp-campground/node_modules
-Frontend/yelpcamp-campground/vite.config.js
-Frontend/yelpcamp-campground/package-lock.json
-Frontend/yelpcamp-campground/public/vite.svg
-Frontend/yelpcamp-campground/.eslintrc.cjs
-/Backend/Models
-/Backend/Seeds
+/Backend/.env
+/Backend/package-lock.json
+/Backend/yelpbackend.zip
+
+# Frontend
+/Frontend/yelpcamp-campground/dist
+/Frontend/yelpcamp-campground/node_modules
+/Frontend/yelpcamp-campground/.env
+/Frontend/yelpcamp-campground/package-lock.json
+/Frontend/yelpcamp-campground/public/vite.svg
+/Frontend/yelpcamp-campground/.eslintrc.cjs
