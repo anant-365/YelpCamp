@@ -18,7 +18,7 @@ Click below image to watch the demo video:
 
 [![Demovideo](https://github.com/anant-365/YelpCamp/raw/main/Screenshot%202024-10-11%20211505.png?raw=true)](https://www.youtube.com/watch?v=QPfEKW7j3SY)
 
-## Project Architecture
+## Project Flowchart
 ![Flow Chart](https://github.com/anant-365/YelpCamp/blob/main/yelpCamp_WorkFlowchart.png?raw=true)
 
 ## Client-Side (Frontend)
