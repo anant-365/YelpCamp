@@ -40,8 +40,7 @@ Click below image to watch the demo video:
 - **Localhost**: Developed and tested locally before deployment.
 
 ## Future Enhancements
-- **Load Balancer**: Distributing traffic across multiple servers.
-- **Firewall**: Ensuring network security.
+- **Load Balancer and Auto Scaling**: Distributing traffic across multiple servers.
 - **CI/CD Pipelines**: Automating build, test, and deployment processes.
 
 ## Source Code
