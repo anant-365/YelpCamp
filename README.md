@@ -22,12 +22,12 @@ Click below image to watch the demo video:
 - **React**: Building a dynamic and responsive user interface.
 - **Tailwind CSS**: Styling components for a sleek and modern look.
 - **React Leaflet**: Displaying campground locations on an interactive map.
+- **LocationIQ API**: Forward geocoding for accurate campground locations.
 
 ## Server-Side (Backend)
 - **Node.js**: Leveraging JavaScript for server-side logic.
 - **Express.js**: Creating robust REST APIs for client-server communication.
 - **Socket.io**: Implementing real-time commenting features.
-- **LocationIQ API**: Forward geocoding for accurate campground locations.
 
 ## Database
 - **MongoDB**: Storing campground data efficiently with a NoSQL database.
