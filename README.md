@@ -9,7 +9,7 @@ YelpCamp is a full-stack web application that allows users to view, create, and 
 https://staging.d3p685eytu39kz.amplifyapp.com
 
 ## Project Screenshot
-![Screenshot 1](https://github.com/anant-365/YelpCamp/blob/main/Screenshot%202024-10-11%20211505.png?raw=true)
+![Screenshot 1](https://raw.githubusercontent.com/anant-365/YelpCamp/refs/heads/main/Screenshot_14-10-2024_21231_staging.d3p685eytu39kz.amplifyapp.com.jpeg)
 
 ## Demo Video
 Click below image to watch the demo video:
