@@ -4,17 +4,18 @@ import { v4 as uuidv4 } from 'uuid';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginRegister = () => {
-  const [isRegister, setIsRegister] = useState(false); // Switch between login and register
+  const [isRegister, setIsRegister] = useState(false);
   const [userData, setUserData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false); // Password visibility state
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    // Prevent spaces in both username and password inputs
     setUserData({ ...userData, [name]: value.replace(/\s+/g, '') });
   };
 
@@ -31,7 +32,6 @@ const LoginRegister = () => {
     e.preventDefault();
     try {
       if (isRegister) {
-        // Registration Logic
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_SERVER}/api/register`, {
           ...userData,
           userIdYelp: uuidv4(),
@@ -41,25 +41,50 @@ const LoginRegister = () => {
           reloadPage();
         } else {
           setError(response.data.message);
+          showErrorToast(response.data.message);
         }
       } else {
-        // Login Logic
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_SERVER}/api/login`, userData);
         if (response.data.success) {
           Cookies.set('userIdYelp', response.data.userId, { expires: 1 });
           reloadPage();
         } else {
           setError(response.data.message);
+          showErrorToast(response.data.message);
         }
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      const errorMessage = 'An error occurred. Please try again.';
+      setError(errorMessage);
+      showErrorToast(errorMessage);
     }
   };
 
-  // Toggle password visibility
   const togglePasswordVisibility = () => {
     setIsPasswordVisible((prevVisibility) => !prevVisibility);
+  };
+
+  const showErrorToast = (message) => {
+    toast.error(
+      <div>
+        <p className="font-semibold text-red-600">Error</p>
+        <p className="mt-1 text-black">
+          If unable to login/register or view the full project, the server might be temporarily stopped to manage costs.
+          Please contact the developer at <span className="text-blue-700">pandeyanant363@gmail.com</span>.
+        </p>
+      </div>,
+      {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        className: 'bg-lime-600 border border-white rounded-lg shadow-lg',
+        bodyClassName: 'text-white',
+        icon: false,
+      }
+    );
   };
 
   return (
@@ -76,7 +101,6 @@ const LoginRegister = () => {
         </h2>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
-          {/* Username Input */}
           <div className="relative">
             <FaUser className="absolute left-3 top-3 text-gray-400" />
             <input
@@ -90,7 +114,6 @@ const LoginRegister = () => {
             />
           </div>
 
-          {/* Password Input */}
           <div className="relative">
             <FaLock className="absolute left-3 top-3 text-gray-400" />
             <input
@@ -109,7 +132,6 @@ const LoginRegister = () => {
 
           {error && <p className="text-red-500 text-sm">{error}</p>}
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
@@ -127,6 +149,8 @@ const LoginRegister = () => {
             {isRegister ? 'Login here' : 'Register here'}
           </button>
         </p>
+
+        <ToastContainer />
       </div>
     </div>
   );
