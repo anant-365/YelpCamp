@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import OverlayPopup from '../Overlaypopup/Overlaypopup';
 
 const LoginRegister = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -88,6 +89,8 @@ const LoginRegister = () => {
   };
 
   return (
+    <>
+    <OverlayPopup/>
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-gray-900">
       <div className="w-full max-w-md p-8 space-y-6 bg-gray-900 shadow-lg rounded-lg">
         <h1 className="text-center text-3xl font-extrabold text-lime-600">
@@ -153,6 +156,7 @@ const LoginRegister = () => {
         <ToastContainer />
       </div>
     </div>
+    </>
   );
 };
 
