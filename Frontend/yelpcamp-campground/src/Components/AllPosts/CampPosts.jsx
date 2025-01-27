@@ -5,11 +5,15 @@ import { FaHeart, FaRegHeart, FaSearch, FaUserAlt, FaCalendarAlt, FaCommentDots 
 import { NavLink } from 'react-router-dom';
 import io from 'socket.io-client';
 import Cookies from 'js-cookie';
-
-const socket = io(`${import.meta.env.VITE_BACKEND_SERVER}`); // Connect to Socket.IO backend
+const userId = Cookies.get('userIdYelp');
+const socket = io(`${import.meta.env.VITE_BACKEND_SERVER}`, {
+  withCredentials: true, // Ensure cookies are sent with the request
+  auth: {
+    token: userId, // Pass the token here instead of headers
+  }
+}); // Connect to Socket.IO backend
 
 const CampPosts = () => {
-  const userId = Cookies.get('userIdYelp');
   const [posts, setPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [likes, setLikes] = useState({});
@@ -20,7 +24,9 @@ const CampPosts = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/posts`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/posts`, {
+          withCredentials: true, // This ensures cookies are sent with the request
+        });
         setPosts(response.data);
 
         const initialLikes = {};
@@ -38,7 +44,9 @@ const CampPosts = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${userId}`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${userId}`, {
+          withCredentials: true, // This ensures cookies are sent with the request
+        });
         setUserData(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -69,9 +77,11 @@ const CampPosts = () => {
     });
 
     try {
-      await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/posts/${postId}/like`, {
+      await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/posts/${postId}/like`,{
         liked: !likes[postId]?.liked,
         likeCount: likes[postId]?.liked ? likes[postId].count - 1 : likes[postId].count + 1,
+      }, {
+        withCredentials: true, // This ensures cookies are sent with the request
       });
     } catch (error) {
       console.error('Error updating like count:', error);

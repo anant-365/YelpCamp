@@ -18,14 +18,44 @@ import CampPosts from './Components/AllPosts/CampPosts.jsx';
 import ProfileView from './Components/UserList/ProfileView.jsx';
 import UserList from './Components/UserList/UserList.jsx';
 import CampgroundMap from './Components/Map/CampgroundMap.jsx'
+import axios from 'axios';
 
 const AppRouter = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  
   useEffect(() => {
-    const userIdYelp = Cookies.get('userIdYelp');
-    setIsLoggedIn(!!userIdYelp); // Update logged-in status based on cookie
+    const checkAuth = async () => {
+      try {
+        const userIdYelp = Cookies.get('userIdYelp');
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/protected`, {
+          withCredentials: true,
+        });
+        
+        const jwtExpiryTime = response.data.tokenExpiry * 1000;
+        const timeRemaining = jwtExpiryTime - Date.now();
+
+        if (timeRemaining > 0) {
+          setTimeout(() => {
+            Cookies.remove('userIdYelp');
+            setIsLoggedIn(false);
+            alert("Your session has expired. Please log in again.");
+          }, timeRemaining);
+        } else {
+          Cookies.remove('userIdYelp');
+          setIsLoggedIn(false);
+          alert("Your session has expired. Please log in again.");
+        }
+
+        setIsLoggedIn(!!userIdYelp);
+      } catch (error) {
+        console.error("Error fetching token expiry:", error);
+        setIsLoggedIn(false);
+      }
+    };
+
+    checkAuth();
   }, []);
+  
 
   return (
     <RouterProvider

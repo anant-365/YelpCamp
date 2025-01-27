@@ -24,7 +24,9 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${Id}`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${Id}`, {
+          withCredentials: true, // This ensures cookies are sent with the request
+        });
         setUserData(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
@@ -72,6 +74,8 @@ const UserProfile = () => {
       await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${Id}`, {
         ...userData,
         posts: updatedPosts,
+      }, {
+        withCredentials: true, // This ensures cookies are sent with the request
       });
       alert('New post added successfully!');
     } catch (error) {
@@ -82,7 +86,10 @@ const UserProfile = () => {
   const handleDeletePost = async (index) => {
     const postId = userData.posts[index].postId;
     try {
-      await axios.delete(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${Id}/deletePost`, { data: { postId } });
+      let response = await axios.delete(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/deletePost/${postId}`, {
+        withCredentials: true, // This ensures cookies are sent with the request
+      });
+      console.log(response)
       window.location.reload();
       alert('Post deleted successfully!');
     } catch (error) {
@@ -92,9 +99,14 @@ const UserProfile = () => {
 
   const handleClearBio = async () => {
     setUserData((prev) => ({ ...prev, about: '' })); // Clear bio locally
-
     try {
-      await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${Id}/clearBio`);
+      await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/clearBio/${Id}`, {
+        withCredentials: true, // This ensures cookies are sent with the request
+      }, {
+        headers: {
+          authorization: Id,
+        }
+      });
       alert('Bio cleared successfully!');
     } catch (error) {
       console.error('Error clearing bio:', error);
@@ -103,8 +115,12 @@ const UserProfile = () => {
 
   const handleSave = async () => {
     try {
-      await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${Id}`, userData);
-      await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/posts/${Id}`, userData);
+      await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${Id}`, userData, {
+        withCredentials: true, // This ensures cookies are sent with the request
+      });
+      await axios.put(`${import.meta.env.VITE_BACKEND_SERVER}/api/posts/${Id}`, userData, {
+        withCredentials: true, // This ensures cookies are sent with the request
+      });
       window.location.reload();
       alert('Profile updated successfully!');
     } catch (error) {

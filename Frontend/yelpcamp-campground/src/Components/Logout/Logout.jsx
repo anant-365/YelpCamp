@@ -1,16 +1,15 @@
 import React from 'react';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 const Logout = () => {
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     // Remove the cookie
     Cookies.remove('userIdYelp'); // Replace 'userId' with the name of your cookie
 
     // Navigate to the login page
-    window.location.reload(true); // reloads from server
+    window.location.href = '/'; // reloads from server
   };
 
   return (

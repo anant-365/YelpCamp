@@ -39,6 +39,7 @@ const Campgrounds = () => {
                 <div key={e['_id']} className="bg-gray-800 p-4 rounded-lg shadow-lg">
                   <h2 className="text-xl font-bold text-lime-300 mb-2">{e['location']}</h2>
                   <p className="mb-2">{e['description']}</p>
+                  <p className="mb-2 font-bold italic"> Posted By: {e['username'] || 'anant'}</p>
                   <NavLink
                     to={`showCamp/:${e['_id']}`}
                     className="inline-block mt-4 p-2 bg-lime-300 text-gray-800 font-bold rounded hover:bg-lime-400"

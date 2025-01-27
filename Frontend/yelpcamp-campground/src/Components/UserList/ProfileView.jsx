@@ -13,10 +13,14 @@ const ProfileView = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userResponse = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/allusers/${userId}`);
+        const userResponse = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/allusers/${userId}`, {
+          withCredentials: true, // This ensures cookies are sent with the request
+        });
         setUser(userResponse.data);
 
-        const postsResponse = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${userId}/posts`);
+        const postsResponse = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${userId}/posts`, {
+          withCredentials: true, // This ensures cookies are sent with the request
+        });
         setPosts(postsResponse.data);
       } catch (error) {
         console.error('Error fetching user profile:', error);
@@ -24,7 +28,6 @@ const ProfileView = () => {
     };
     fetchUserData();
   }, [userId]);
-
   if (!user) {
     return <p>Loading...</p>;
   }

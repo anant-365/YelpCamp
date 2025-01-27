@@ -1,16 +1,23 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import axios from 'axios';
 
 const DeleteCampground = () => {
     let { campId } = useParams();
-
+    const Id = Cookies.get('userIdYelp');
     const handleSubmit = () => {
         axios({
-            method: 'delete',
-            url: `${import.meta.env.VITE_BACKEND_SERVER}/campground/${campId.slice(1, campId.length)}`,
+            method: 'delete', // or use 'post', 'put', etc., as needed
+            url: `${import.meta.env.VITE_BACKEND_SERVER}/campground/${campId.slice(1)}`,
+            withCredentials: true,
+            headers: {
+                authorization: Id,
+            },
         }).then(function (response) {
             console.log(response.data);
+        }).catch(function (error) {
+            console.error("Error fetching campground:", error);
         });
         alert('Campground Deleted')
     };

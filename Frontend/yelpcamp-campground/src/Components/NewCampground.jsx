@@ -25,6 +25,7 @@ const NewCampground = () => {
             method: 'post',
             url: `${import.meta.env.VITE_BACKEND_SERVER}/campground`,
             data: newCamp,
+            withCredentials: true, // This ensures cookies are sent with the request
         }).then(function (response) {
             // Handle response as needed
             console.log(response.data);

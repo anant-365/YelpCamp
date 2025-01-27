@@ -11,7 +11,9 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users`, {
+          withCredentials: true, // This ensures cookies are sent with the request
+        });
         setUsers(response.data);
       } catch (error) {
         console.error('Error fetching users:', error);

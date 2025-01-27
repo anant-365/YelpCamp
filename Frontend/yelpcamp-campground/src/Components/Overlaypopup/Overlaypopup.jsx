@@ -19,8 +19,9 @@ const OverlayPopup = () => {
       <div className="bg-gray-800 text-white p-6 rounded-lg max-w-md w-full mx-4 relative">
         <h3 className="text-lg text-red-500 font-semibold mb-2">Possible Server Downtime Alert:</h3>
         <p className="mb-4 text-white">
+        <span className="text-yellow-500"> Try logging in or registering Once,&nbsp; </span>
           If unable to login/register or view the full project, the server might be temporarily stopped to manage costs.
-          Please contact the developer at <span className="text-blue-500">pandeyanant363@gmail.com</span>.
+          Please contact the developer at <span className="text-blue-500">pandeyanant363@gmail.com</span>
         </p>
         <button
           onClick={closePopup}

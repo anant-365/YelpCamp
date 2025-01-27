@@ -33,7 +33,9 @@ const CampgroundMap = () => {
 
   const fetchCampgrounds = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/campground`);
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/campground`, {
+        withCredentials: true, // This ensures cookies are sent with the request
+      });
       const campgrounds = response.data;
 
       const updatedCampgrounds = [];

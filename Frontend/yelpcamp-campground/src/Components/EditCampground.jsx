@@ -18,16 +18,22 @@ const EditCampground = () => {
         });
     };
 
-    const handleSubmit = () => {
-        axios({
-            method: 'put',
-            url: `${import.meta.env.VITE_BACKEND_SERVER}/campground`,
-            data: editCamp
-        }).then(function (response) {
-            //pass
-        });
-        alert('Campground Edited')
+    const handleSubmit = async () => {
+        try {
+            const response = await axios({
+                method: 'put',
+                url: `${import.meta.env.VITE_BACKEND_SERVER}/campground`,
+                data: editCamp,
+                withCredentials: true, // This ensures cookies are sent with the request
+            });
+            alert('campground edited');
+        } catch (error) {
+            // Display error message in an alert
+            alert(`Error: ${error.response?.data?.message || error.message || 'Something went wrong!'}`);
+            console.error(error);
+        }
     };
+    
 
     return (
         <div className="bg-gray-800 text-white p-4 sm:p-6 md:p-8 lg:p-10 flex justify-center items-center min-h-screen">

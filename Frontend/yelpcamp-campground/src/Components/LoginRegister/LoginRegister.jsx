@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import { FaUser, FaLock, FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -13,7 +12,6 @@ const LoginRegister = () => {
   const [userData, setUserData] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,10 +33,9 @@ const LoginRegister = () => {
       if (isRegister) {
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_SERVER}/api/register`, {
           ...userData,
-          userIdYelp: uuidv4(),
         });
         if (response.data.success) {
-          Cookies.set('userIdYelp', response.data.userId, { expires: 1 });
+          Cookies.set('userIdYelp', response.data.jwtToken, { expires: 1 });
           reloadPage();
         } else {
           setError(response.data.message);
@@ -47,7 +44,7 @@ const LoginRegister = () => {
       } else {
         const response = await axios.post(`${import.meta.env.VITE_BACKEND_SERVER}/api/login`, userData);
         if (response.data.success) {
-          Cookies.set('userIdYelp', response.data.userId, { expires: 1 });
+          Cookies.set('userIdYelp', response.data.jwtToken, { expires: 1 });
           reloadPage();
         } else {
           setError(response.data.message);

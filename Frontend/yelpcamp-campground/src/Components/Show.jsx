@@ -22,6 +22,7 @@ const Show = () => {
             <h3 className="text-xl text-lime-300 mb-2">Title: {selectedCamp.title}</h3>
             <h3 className="text-xl text-lime-300 mb-2">Price: {selectedCamp.price} $</h3>
             <h3 className="text-xl text-lime-300 mb-4">Description: {selectedCamp.description}</h3>
+            <h3 className="text-xl text-lime-300 mb-4">Posted By: {selectedCamp.username || 'anant'}</h3>
           </div>
           <div className="flex justify-between mt-4">
             <NavLink

@@ -20,6 +20,7 @@ function App() {
           headers: {
             Accept: 'application/json',
           },
+          withCredentials: true, // This ensures cookies are sent with the request
         });
         setCampData(response.data);
       } catch (error) {
@@ -34,7 +35,9 @@ function App() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${userId}`);
+        const response = await axios.get(`${import.meta.env.VITE_BACKEND_SERVER}/api/users/${userId}`, {
+          withCredentials: true, // This ensures cookies are sent with the request
+        });
         setUserData(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
