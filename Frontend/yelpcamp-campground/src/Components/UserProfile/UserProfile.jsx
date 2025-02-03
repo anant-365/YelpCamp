@@ -134,7 +134,7 @@ const UserProfile = () => {
         <div className="flex flex-col items-center">
           <div className="relative w-32 h-32 mb-4">
             <img
-              src={userData.profilePic || 'https://via.placeholder.com/150'}
+              src={userData.profilePic || 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'}
               alt="Profile"
               className="w-full h-full rounded-full object-cover"
             />

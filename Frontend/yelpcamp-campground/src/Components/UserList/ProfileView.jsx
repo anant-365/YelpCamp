@@ -39,7 +39,7 @@ const ProfileView = () => {
         <div className="bg-gray-800 rounded-lg p-8 shadow-lg mb-8">
           <div className="flex items-center">
             <img
-              src={user.profilePic || 'https://via.placeholder.com/150'}
+              src={user.profilePic || 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'}
               alt="Profile"
               className="w-20 h-20 rounded-full mr-6"
             />

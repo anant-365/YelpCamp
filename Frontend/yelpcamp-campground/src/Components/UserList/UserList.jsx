@@ -51,7 +51,7 @@ const UserList = () => {
               <div key={user._id} className="bg-gray-900 rounded-lg shadow-lg p-6">
                 <div className="flex items-center">
                   <img
-                    src={user.profilePic || 'https://via.placeholder.com/150'}
+                    src={user.profilePic || 'https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'}
                     alt="Profile"
                     className="w-16 h-16 rounded-full mr-4"
                   />

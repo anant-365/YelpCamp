@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   userId: { type: String, required: true, unique: true },
   name: {type: String , default: 'Your Name'},
   about: {type: String, default: 'Tell us about yourself!'},
-  profilePic: {type: String, default: 'https://via.placeholder.com/150'},
+  profilePic: {type: String, default: ''},
   posts: {type: [{ type: postSchema, default: ['This Initial Post by server, You can edit this or even post new.',] }]},
 }, { timestamps: true });
 
